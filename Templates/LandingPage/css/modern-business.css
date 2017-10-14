@@ -23,7 +23,9 @@ body {
     -o-background-size: cover;
     background-size: cover;
 }
-
+.carousel-caption {
+    color: gray;
+}
 .portfolio-item {
     margin-bottom: 30px;
 }
