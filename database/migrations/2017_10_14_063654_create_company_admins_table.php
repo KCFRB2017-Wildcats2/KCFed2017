@@ -15,7 +15,9 @@ class CreateCompanyAdminsTable extends Migration
     {
         Schema::create('company_admins', function (Blueprint $table) {
             $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->integer('company_id')->unsigned();
+            $table->foreign('company_id')->references('id')->on('companies');
             $table->timestamps();
         });
     }
