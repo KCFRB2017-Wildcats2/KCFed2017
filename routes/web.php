@@ -12,10 +12,10 @@
 */
 
 Route::get('/', 'MainController@Index');
-
+Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
-    
+
     Route::get('/profile', 'UserController@Profile');
     Route::post('/profle', 'UserController@UpdateProfile');
 
@@ -28,8 +28,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/event/{id}', 'EventController@Event');
     Route::get('/event/create', 'EventController@ShowCreate');
     Route::post('/event/create', 'EventController@CreateEvent');
-    
+
     Route::get('company/{id}', 'CompanyController@Company');
     Route::get('/comapny/create', 'CompanyController@ShowCreate');
     Route::post('/company/create', 'CompanyController@CreateCompany');
 });
+
+Route::get('/home', 'HomeController@index')->name('home');
