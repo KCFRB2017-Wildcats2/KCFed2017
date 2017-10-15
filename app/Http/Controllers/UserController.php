@@ -9,10 +9,8 @@ use App\User;
 class UserController extends Controller
 {
     public function Profile() {
-        //check for if authenticated
         $user = User::where('id', Auth::user()->id)->first();
         return view('profile', compact('user'));
-        //else return error
     }
 
     public function UpdateProfile() {
