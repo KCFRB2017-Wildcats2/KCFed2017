@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('last_name');
             $table->string('password');
             $table->string('email')->unique();
-            $table->string('avatar')->default("");
+            $table->string('avatar')->default("https://s3.amazonaws.com/kcfrb2017/default.png");
             $table->unsignedInteger('company_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
