@@ -16,7 +16,13 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'first_name', 'last_name', 'avatar', 'email', 'password', 'company_id'
+        'first_name',
+        'last_name',
+        'avatar',
+        'email',
+        'password',
+        'company_id',
+        'company_admin'
     ];
 
     /**
@@ -25,17 +31,12 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
     ];
 
-    public function isCompanyAdmin(){
-        $company = Company::find($this->company->id);
-        $is_admin = $company->admins()->where('company_id', $company->id)->where('user_id', $this->id)->exists();
-        return $is_admin;
-    }
-
-    public function company() {
-        return $this->belongsTo('App\Company', 'company_users');
+    public function company(){
+        return $this->belongsTo('App\Company');
     }
 
     public function events(){

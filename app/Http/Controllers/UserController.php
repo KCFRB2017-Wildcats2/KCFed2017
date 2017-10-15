@@ -30,8 +30,8 @@ class UserController extends Controller
       $user = User::where('id', Auth::user()->id)->first();
       $avatar = $user->avatar;
       if($request->file('avatar') != ""){
-        $filename = uniqid().'.jpg';
-        Image::make($request->file('avatar'))->encode('jpg')->save(public_path().'/images/profile/'.$filename);
+        $filename = uniqid().'.'.$request->file('avatar')->getClientOriginalName();
+        Image::make($request->file('avatar'))->save(public_path().'/images/profile/'.$filename);
         $avatar = config('app.url').'/images/profile/'.$filename;
       }
 
