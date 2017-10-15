@@ -38,11 +38,11 @@
 
     <!-- Page Content -->
     <div class="container">
-
+      <img src="{{URL::asset('/images/logoCropped.png')}}" alt="Logo" height="303" width="1224">
       <h1 class="my-4">Welcome to Signing Bonus</h1>
 
       <!-- Marketing Icons Section -->
-      <div class="row">
+      <div class="row welcome-padding">
         <div class="col-lg-4 mb-4">
           <div class="card h-100">
             <h4 class="card-header">Find out What Events your Company Offers</h4>
@@ -70,7 +70,57 @@
           </div>
         </div>
       </div>
-      <!-- /.row -->
+
+
+
+
+        <div class="row">
+          <div class="col-lg-4 mb-4">
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <h3 class="panel-title">Kansas City</h3>
+              </div>
+              <div class="panel-body panel-padding">
+                <img class="panel-image" src="{{URL::asset('/images/kansascity.png')}}" alt="Kansas City">
+                <p class="panel-body panel-text"> 
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+          <div class="col-lg-4 mb-4">
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <h3 class="panel-title">Seattle</h3>
+              </div>
+              <div class="panel-body panel-padding">
+                <img class="panel-image" src="{{URL::asset('/images/seattle.png')}}" alt="Seattle">
+                <p class="panel-body panel-text"> 
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+          <div class="col-lg-4 mb-4">
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <h3 class="panel-title">San Fransisco</h3>
+              </div>
+              <div class="panel-body panel-padding">
+                <img class="panel-image" src="{{URL::asset('/images/sanfransisco.png')}}" alt="San Fransisco">
+                <p class="panel-body panel-text"> 
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
 
     </div>
     <!-- /.container -->

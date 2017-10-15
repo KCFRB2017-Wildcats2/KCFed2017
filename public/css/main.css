@@ -8,3 +8,23 @@
 input[type=file] {
   vertical-align: middle;
 }
+
+.welcome-padding {
+  padding-bottom: 40px;
+}
+
+.panel-image {
+  width: 100%;
+  height: 100%;
+  padding-top: 0;
+}
+
+.panel-padding {
+  padding-top: 0;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.panel-text {
+  padding-bottom: 0;
+}
