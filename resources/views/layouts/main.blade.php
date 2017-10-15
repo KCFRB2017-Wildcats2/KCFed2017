@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Signing Bonus | @yield('title')</title>
-    <link href="{{ URL::asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ URL::asset('css/main.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @yield('head')
 
     <script>
@@ -19,50 +18,60 @@
 
   <body>
 
-    <!-- Navigation -->
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div id="app">
+  <nav class="navbar navbar-default navbar-static-top">
       <div class="container">
-        <a class="navbar-brand" href="{{ url('/')}}">Signing Bonus</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            @if(Auth::check())
-            <li class="nav-item">
+          <div class="navbar-header">
+
+              <!-- Collapsed Hamburger -->
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+                  <span class="sr-only">Toggle Navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+
+              <!-- Branding Image -->
+              <a class="navbar-brand" href="{{ url('/') }}">
+                  Signing Bonus
+              </a>
+          </div>
+
+          <div class="collapse navbar-collapse" id="app-navbar-collapse">
+              <!-- Left Side Of Navbar -->
+              <ul class="nav navbar-nav">
+                  &nbsp;
+              </ul>
+
+              <!-- Right Side Of Navbar -->
+              <ul class="nav navbar-nav navbar-right">
+                  <!-- Authentication Links -->
+                  @guest
+                      <li><a href="{{ route('login') }}">Login</a></li>
+                      <li><a href="{{ route('register') }}">Register</a></li>
+                  @else
+                  <li class="nav-item">
                 <a class="nav-link" href=" {{ url('/profile') }} ">Profile</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                Logout
-              </a>
-              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                {{ csrf_field() }}
-              </form>
-            </li>
-            @else
-            <li class="nav-item">
-                <a class="nav-link" href=" {{ url('/login') }} ">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href=" {{ url('/register') }} ">Register</a>
-            </li>
-            @endif
-          </ul>
-        </div>
+                  <li class="nav-item">
+                  <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    Logout
+                  </a>
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                  </form>
+                </li>
+                          </ul>
+                      </li>
+                  @endguest
+              </ul>
+          </div>
       </div>
-    </nav> 
+  </nav>
     @yield('content')
+</div>
 
     <script src="{{ URL::asset('js/jquery.min.js') }}"></script>
-    <script src="{{ URL::asset('js/popper.min.js') }}"></script>
-    <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
-
-    <footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
-      </div>
-    </footer>
-
+    <script src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>
