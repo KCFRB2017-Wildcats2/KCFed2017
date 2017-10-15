@@ -2,19 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\City;
+use App\User;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Image;
 use Storage;
 
-use App\User;
-
 class UserController extends Controller
 {
     public function Profile() {
         $user = User::with('company')->where('id', Auth::user()->id)->first();
-        return view('profile', compact('user'));
+        $cities = City::get();
+        $domain = explode('@', $user->email)[1];
+        return view('profile', compact('user', 'cities', 'domain'));
     }
 
     public function UpdateProfile(Request $request) {
@@ -28,8 +30,8 @@ class UserController extends Controller
       $user = User::where('id', Auth::user()->id)->first();
       $avatar = $user->avatar;
       if($request->file('avatar') != ""){
-        $filename = uniqid().'.jpg';
-        Image::make($request->file('avatar'))->encode('jpg')->save(public_path().'/images/profile/'.$filename);
+        $filename = uniqid().'.'.$request->file('avatar')->getClientOriginalName();
+        Image::make($request->file('avatar'))->save(public_path().'/images/profile/'.$filename);
         $avatar = config('app.url').'/images/profile/'.$filename;
       }
 
