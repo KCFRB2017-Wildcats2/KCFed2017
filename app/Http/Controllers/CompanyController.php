@@ -6,10 +6,6 @@ use Illuminate\Http\Request;
 
 class CompanyController extends Controller
 {
-    public function Companies() {
-        
-        return view('companies');
-    }
 
     public function Company($id) {
 
