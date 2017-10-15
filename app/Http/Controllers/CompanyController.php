@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Company;
 
 class CompanyController extends Controller
 {
 
     public function Company($id) {
-        $event = Event::where('id', $id)->first();
-        return view('company');
+        $company = Company::where('id', $id)->first();
+        return view('company', compact('company'));
     }
 
     public function ShowCreate() {
@@ -18,7 +19,9 @@ class CompanyController extends Controller
     }
 
     public function CreateCompany(Request $request) {
-        //$companies = Company::where('id', $id)->first();
+
+        //validate the request
+
         $company = new Company();
         $company->name = $request->input("name");
         $company->address_line_1 = $request->input("address_line_1");
@@ -26,6 +29,7 @@ class CompanyController extends Controller
         $company->address_line_3 = $request->input("address_line_3");
         $company->description = $request->input("description");
         $company->website_url = $request->input("website_url");
+        $company->city_id = 1; //todo change
         $company->save();
         return Company(1);
     }

@@ -3,18 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Event;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
     public function Events() {
-        $events = Events::get();
-        return view('events');
+        $events = Event::get();
+        return view('events', compact('events'));
     }
 
     public function Event($id) {
         $event = Event::where('id', $id)->first();
-        return view ('event');
+        return view ('event', compact('event'));
     }
 
     public function ShowCreate() {
@@ -32,6 +33,6 @@ class EventController extends Controller
         $event->company()->associate($companies);
         $event->user()->associate(Auth::$user);
         $event->save();
-        return Event(1);
+        return Event($event->id);
     }
 }
