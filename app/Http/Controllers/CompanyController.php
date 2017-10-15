@@ -29,7 +29,7 @@ class CompanyController extends Controller
 
         $logo = '';
         if($request->file('logo') != ""){
-          $filename = uniqid().$request->file('logo')->getClientOriginalName();
+          $filename = uniqid().'.'.$request->file('logo')->getClientOriginalName();
           Image::make($request->file('logo'))->save(public_path().'/images/logo/'.$filename);
           $logo = config('app.url').'/images/logo/'.$filename;
         }
