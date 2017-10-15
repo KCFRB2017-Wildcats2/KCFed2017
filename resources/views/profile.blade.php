@@ -44,15 +44,11 @@
           <input type="text" class="form-control" name="name" value="{{is_null($user->company) ? '' : '$user->company->name'}}" required>
         </div>
         <div class="form-group">
-          <label for="address_line_1">Address</label>
-          <input type="text" class="form-control" name="address_line_1" value="{{is_null($user->company) ? '' : '$user->company->address_line_1'}}" required>
+          <label for="address">Address</label>
+          <input type="text" class="form-control" name="address" value="{{is_null($user->company) ? '' : '$user->company->address'}}" required>
         </div>
         <div class="form-group">
-          <label for="address_line_2">Address 2</label>
-          <input type="text" class="form-control" name="address_line_2" value="{{is_null($user->company) ? '' : '$user->company->address_line_2'}}">
-        </div>
-        <div class="form-group">
-          <label for="address_line_2">City</label>
+          <label for="city">City</label>
           <select name="city" required>
             <option value="">Select one</option>
             @foreach($cities as $city)
@@ -61,20 +57,8 @@
           </select>
         </div>
         <div class="form-group">
-          <label for="zip">Zip Code</label>
-          <input type="text" class="form-control" name="zip" value="{{is_null($user->company) ? '' : '$user->company->zip'}}" required>
-        </div>
-        <div class="form-group">
-          <label for="website_url">Website</label>
-          <input type="text" class="form-control" name="website_url" value="{{is_null($user->company) ? '' : '$user->company->website_url'}}">
-        </div>
-        <div class="form-group">
           <label for="domain">Email Domain</label>
           <input type="text" class="form-control" name="domain" value="{{is_null($user->company) ? $domain : '$user->company->domain'}}" required>
-        </div>
-        <div class="form-group">
-          <label for="description">Company Description</label>
-          <input type="text" class="form-control" name="description" value="{{is_null($user->company) ? '' : '$user->company->description'}}">
         </div>
         <div class="form-group">
           <label for="avatar">Logo</label>

@@ -13,7 +13,11 @@ class Company extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'address_line_1', 'address_line_2', 'website_url', 'description', 'logo', 'city_id', 'zip', 'domain'
+        'name',
+        'address',
+        'city_id',
+        'domain',
+        'logo'
     ];
 
     public function city() {
