@@ -27,6 +27,7 @@ class UserController extends Controller
       $user->last = $request->input('last');
       $user->email = $request->input('email');;
       return Profile();
+
     }
 
 }

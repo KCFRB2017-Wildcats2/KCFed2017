@@ -13,16 +13,13 @@
 
 Route::get('/', 'MainController@Index');
 
+Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
     
     Route::get('/profile', 'UserController@Profile');
-    Route::post('/profle', 'UserController@UpdateProfile');
+    Route::post('/profile', 'UserController@UpdateProfile');
 
-    //Route::get('/register/{id}', 'MainController@RegisterFromLink');
-    //Route::get('/register', 'MainController@Register');
-
-    //todo add /login routes
 
     Route::get('/events', 'EventController@Events');
     Route::get('/event/{id}', 'EventController@Event');
