@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Company;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -15,7 +16,13 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'first_name', 'last_name', 'avatar', 'email', 'password', 'company_id'
+        'first_name',
+        'last_name',
+        'avatar',
+        'email',
+        'password',
+        'company_id',
+        'company_admin'
     ];
 
     /**
@@ -24,11 +31,15 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
     ];
 
-
-    public function company() {
+    public function company(){
         return $this->belongsTo('App\Company');
+    }
+
+    public function events(){
+        return $this->hasMany('App\Event', 'created_by');
     }
 }
