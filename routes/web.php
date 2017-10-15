@@ -16,9 +16,9 @@ Route::get('/', 'MainController@Index');
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
-
     Route::get('/profile', 'UserController@Profile');
     Route::post('/profile', 'UserController@UpdateProfile');
+    Route::post('/company', 'CompanyController@CreateCompany');
 
     Route::get('/events', 'EventController@Events');
     Route::get('/event/{id}', 'EventController@Event');
@@ -26,6 +26,4 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/event/create', 'EventController@CreateEvent');
 
     Route::get('company/{id}', 'CompanyController@Company');
-    Route::get('/comapny/create', 'CompanyController@ShowCreate');
-    Route::post('/company/create', 'CompanyController@CreateCompany');
 });
