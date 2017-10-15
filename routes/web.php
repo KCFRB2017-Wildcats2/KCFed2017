@@ -17,7 +17,7 @@ Route::get('/', 'MainController@Index');
 Route::group(['middleware' => 'auth'], function () {
     
     Route::get('/profile', 'UserController@Profile');
-    Route::post('/profle', 'UserController@UpdateProfile');
+    Route::post('/profile', 'UserController@UpdateProfile');
 
     //Route::get('/register/{id}', 'MainController@RegisterFromLink');
     //Route::get('/register', 'MainController@Register');
