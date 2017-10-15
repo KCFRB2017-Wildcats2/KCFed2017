@@ -40,38 +40,26 @@
     <div class="container">
       <img src="{{URL::asset('/images/logoCropped.png')}}" alt="Logo" height="303" width="1224">
       <h1 class="my-4">Welcome to Signing Bonus</h1>
+      <hr class="hr-panel">
 
       <!-- Marketing Icons Section -->
       <div class="row welcome-padding">
-        <div class="col-lg-4 mb-4">
+        <div class="col-lg-8 col-lg-offset-2 mb-4">
           <div class="card h-100">
             <h4 class="card-header">Find out What Events your Company Offers</h4>
             <div class="card-body">
-              <p class="card-text">Events are scheduled onto cards for easy viewing, with information and links provided to look further.</p>
-            </div>
-
-          </div>
-        </div>
-        <div class="col-lg-4 mb-4">
-          <div class="card h-100">
-            <h4 class="card-header">Quickly View Company Information</h4>
-            <div class="card-body">
-              <p class="card-text">Companies can create profiles to provide you with easy information and links to information that you may need</p>
-            </div>
-
-          </div>
-        </div>
-        <div class="col-lg-4 mb-4">
-          <div class="card h-100">
-            <h4 class="card-header">Collaborative Events </h4>
-            <div class="card-body">
-              <p class="card-text">Many Companies can own a single Event, allowing the same card to go out to multiple companies if need be</p>
+              <p class="welcome-text card-text">
+                Events are scheduled onto cards for easy viewing, with information and links provided to look further.
+                Companies can create profiles to provide you with easy information and links to information that you may need
+                Many Companies can own a single Event, allowing the same card to go out to multiple companies if need be
+              </p>
             </div>
           </div>
         </div>
       </div>
 
-
+      <h1 class="my-4">Cities</h1>
+      <hr class="hr-panel">
 
 
         <div class="row">
