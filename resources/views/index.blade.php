@@ -38,7 +38,7 @@
 
     <!-- Page Content -->
     <div class="container">
-
+      <img src="{{URL::asset('/images/logoCropped.png')}}" alt="Logo" height="303" width="1224">
       <h1 class="my-4">Welcome to Signing Bonus</h1>
 
       <!-- Marketing Icons Section -->
