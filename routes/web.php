@@ -13,11 +13,12 @@
 
 Route::get('/', 'MainController@Index');
 
-
-Route::group(['middleware' => 'auth'], function () {
+Route::get('/profile', 'UserController@Profile');
+//Route::group(['middleware' => 'auth'], function () {
     
     Route::get('/profile', 'UserController@Profile');
     Route::post('/profile', 'UserController@UpdateProfile');
+
 
     //Route::get('/register/{id}', 'MainController@RegisterFromLink');
     //Route::get('/register', 'MainController@Register');
@@ -32,4 +33,4 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('company/{id}', 'CompanyController@Company');
     Route::get('/comapny/create', 'CompanyController@ShowCreate');
     Route::post('/company/create', 'CompanyController@CreateCompany');
-});
+//});
