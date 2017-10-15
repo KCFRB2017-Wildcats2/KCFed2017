@@ -26,7 +26,7 @@ class CreateForeignKeysTable extends Migration
     public function down()
     {
         Schema::table('users', function($table) {
-            $table->dropForeign('company_id');
+            $table->dropForeign('users_company_id_foreign');
         });
     }
 }
