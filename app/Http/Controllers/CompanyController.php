@@ -19,7 +19,14 @@ class CompanyController extends Controller
     }
 
     public function CreateCompany(Request $request) {
-
+        $this->validate($request, [
+          'name' => 'required|string|max:255',
+          'address_line_1' => 'required|string|max:255',
+          'address_line_2' => 'max:255',
+          'address_line_3' => 'max:255',
+          'description' => 'max:255',
+          'website_url' => 'max:255'
+        ]);
         //validate the request
 
         $company = new Company();

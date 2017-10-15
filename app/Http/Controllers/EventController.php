@@ -24,6 +24,14 @@ class EventController extends Controller
     }
 
     public function CreateEvent(Request $request) {
+
+        $this->validate($request, [
+          'name' => 'required|string|max:255',
+          'start_date' => 'required|string|max:255',
+          'end_date' => 'required|string|max:255',
+          'description' => 'max:255'
+        ]);
+
         $companies = Company::where('id', $id)->first();
         $event = new Event();
         $event->name = $request->input("name");
