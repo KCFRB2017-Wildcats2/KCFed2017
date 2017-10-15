@@ -18,10 +18,12 @@ class CreateEventsTable extends Migration
             $table->string('name');
             $table->dateTime('start_date');
             $table->dateTime('end_date');
-            $table->tinyInteger('private');
+            $table->boolean('private');
             $table->string('description')->default("");
-            $table->integer('created_by')->unsigned();
-            $table->integer('company_id')->unsigned();
+            $table->unsignedInteger('created_by');
+            $table->foreign('created_by')->references('id')->on('users');
+            $table->unsignedInteger('company_id');
+            $table->foreign('company_id')->references('id')->on('companies');
             $table->timestamps();
         });
     }

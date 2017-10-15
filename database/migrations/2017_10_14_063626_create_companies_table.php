@@ -21,7 +21,8 @@ class CreateCompaniesTable extends Migration
             $table->string('address_line_3')->default("");
             $table->string('website_url')->default("");
             $table->string('description')->default("");
-            $table->integer('city_id')->unsigned();
+            $table->unsignedInteger('city_id');
+            $table->foreign('city_id')->references('id')->on('cities');
             $table->timestamps();
         });
     }
