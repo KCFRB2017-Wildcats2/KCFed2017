@@ -3,7 +3,7 @@
 
 [Website](https://frb.atodd.io)
 
-Video
+[Video](https://youtu.be/aoCxq9ly1q4)
 
 Signing Bonus is a web application built by Alex Todd, Kyle Eisenbarger, Tristan Mansfield, and Tyler Aden; Computer Science and Computer Information Systems students at Kansas State University.
 
