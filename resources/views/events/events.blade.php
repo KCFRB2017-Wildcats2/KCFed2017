@@ -23,7 +23,8 @@
                 <div class="panel-heading">
                     <h3 class="panel-title"> {{$event->name}} </h3>
                 </div>
-                <div class="panel-body">
+                <div class="panel-body panel-padding">
+                <img class="panel-image" src="{{$event->image}}" alt="Event Image">
                 <p class="panel-body"> {{ $event->description }} </p>
                 </div>
             </div>
@@ -35,7 +36,7 @@
     <!-- Pagination -->
     <ul class="pagination justify-content-center">
         <li class="page-item @if ( $results->currentPage() == 1) disabled @endif">
-        
+
             @if( $results->currentPage() == 1)
             <span class="page-link">&laquo;</span>
             @else
