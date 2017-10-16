@@ -23,8 +23,21 @@ input[type=file] {
   padding-top: 0;
   padding-right: 0;
   padding-left: 0;
+  min-height: 315px;
 }
 
 .panel-text {
   padding-bottom: 0;
+}
+
+.hr-panel {
+  border-color: rgb(129, 129, 129);
+}
+
+.welcome-text {
+  text-align: justify;
+}
+
+.create-event {
+  text-align: right;
 }
