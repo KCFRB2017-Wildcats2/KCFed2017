@@ -25,7 +25,7 @@
         </div>
         <div class="form-group">
           <label for="avatar">Profile Picture</label>
-          <input type="file" class="form-control" name="avatar">
+          <input type="file" name="avatar">
         </div>
         <button type="submit" class="btn btn-primary btn-xl">Update Profile</button>
       </form>
@@ -59,7 +59,7 @@
         </div>
         <div class="form-group">
           <label for="logo">Logo</label>
-          <input type="file" class="form-control" name="logo">
+          <input type="file" name="logo">
         </div>
         <button type="submit" class="btn btn-primary btn-xl">Create Company</button>
       </form>
@@ -90,7 +90,7 @@
         </div>
         <div class="form-group">
           <label for="logo">Logo</label>
-          <input type="file" class="form-control" name="logo">
+          <input type="file" name="logo">
         </div>
         <button type="submit" class="btn btn-primary btn-xl">Update Company</button>
       </form>
