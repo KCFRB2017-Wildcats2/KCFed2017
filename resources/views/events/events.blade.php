@@ -11,7 +11,7 @@
     <h1 class="my-4">Upcoming Events
     </h1>
     @if(Auth::User()->company_admin)
-    <button type="button" class="btn btn-primary">Create an Event</button>
+    <a class="btn btn-primary" href="{{ url('/events/create') }}">Create an Event</a>
     @endif
 
     <hr class="hr-panel">
@@ -39,14 +39,14 @@
             @if( $results->currentPage() == 1)
             <span class="page-link">&laquo;</span>
             @else
-            <a class="page-link" href="{{ $results->previousPageUrl() }}">&laquo;</a>
+            <a class="page-link" href="{{Request::url() . $results->previousPageUrl() }}">&laquo;</a>
             @endif
             </a>
         </li>
 
         @if ( $results->currentPage() > 1 )
         <li class="page-item">
-            <a class="page-link" href="{{ $results->previousPageUrl() }} ">{{$results->currentPage() -1}}</a>
+            <a class="page-link" href="{{Request::url() .  $results->previousPageUrl() }} ">{{$results->currentPage() -1}}</a>
         </li>
         @endif
 
@@ -55,12 +55,12 @@
         </li>
         @if ( $results->hasMorePages() )
         <li class="page-item">
-            <a class="page-link" href="{{$results->nextPageUrl()}}">{{$results->currentPage() +1}}</a>
+            <a class="page-link" href="{{Request::url() . $results->nextPageUrl()}}">{{$results->currentPage() +1}}</a>
         </li>
         @endif
         @if( $results->nextPageUrl())
         <li class="page-item">
-            <a class="page-link" href="{{$results->nextPageUrl()}}">&raquo;</a>
+            <a class="page-link" href="{{Request::url() . $results->nextPageUrl()}}">&raquo;</a>
         </li>
         @else
         <li class="page-item @if (!$results->nextPageUrl()) disabled @endif">

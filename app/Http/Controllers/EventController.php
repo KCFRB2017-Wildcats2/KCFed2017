@@ -7,20 +7,43 @@ use App\User;
 use Auth;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator as Paginator;
+use Input;
 
 class EventController extends Controller
 {
     public function Events() {
         $private_events = null;
+        
         if(!is_null(Auth::user()->company_id)){
             $company = Company::find(Auth::user()->company_id);
-            $private_events = Event::where('company_id', $company->id)->orderBy('start_date', 'desc')->get();
+            $private_events = Event::where('company_id', $company->id);
         }
-        $events = Event::where('private', false)->orderBy('start_date', 'desc')->get();
-        if(!is_null($private_events)){
-            $results = $events->merge($private_events);
+
+        if($private_events != null) {
+            $results = Event::where('private', false)
+                            ->union($private_events)
+                            ->orderBy('start_date', 'desc')
+                            ->get();
+
+            $paginate = 8;
+            $page = Paginator::resolveCurrentPage();
+
+            $offSet = ($page * $paginate) - $paginate;  
+            $currentPageItems = $results->slice(($page - 1) * $paginate, $paginate);
+            $results = new \Illuminate\Pagination\LengthAwarePaginator($currentPageItems, count($results), $paginate);
+
+            return view('events.events', compact('results'));
+            
         }
+        $results = $results = Event::where('private', false)
+                                    ->orderBy('start_date', 'desc')
+                                    ->paginate(8);
+
         return view('events.events', compact('results'));
+        
+
+
     }
 
     public function ShowCreate() {
