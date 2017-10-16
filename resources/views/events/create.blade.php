@@ -14,7 +14,7 @@
         </div>
         <div class="form-group">
           <label for="private">Private</label>
-          <input type="checkbox" name="private">
+          <input type="checkbox" name="private" value="private">
         </div>
         <div class="form-group">
           <label for="start_date">Start Date</label>

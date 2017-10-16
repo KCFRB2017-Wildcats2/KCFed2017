@@ -47,12 +47,16 @@ class EventController extends Controller
           $image = config('app.url').'/images/event/'.$filename;
         }
 
+        $private = false;
+        if($request->input('private') == 'private'){
+            $private = true;
+        }
         $event = Event::create([
             'name' => $request->input('name'),
             'start_date' => new Carbon($request->input('start_date'), 'America/Chicago'),
             'end_date' => new Carbon($request->input('end_date'), 'America/Chicago'),
             'description' => $request->input('description'),
-            'private' => $request->input('private'),
+            'private' => $private,
             'image' => $image,
             'created_by' => Auth::user()->id,
             'company_id' => $company->id
