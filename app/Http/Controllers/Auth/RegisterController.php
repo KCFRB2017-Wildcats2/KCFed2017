@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Company;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -64,16 +65,19 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $domain = explode('@', $data['email'])[1];
+        $company_id = null;
         $company = Company::where('domain', $domain)->first();
+        if(!is_null($company)){
+          $company_id = $company->id;
+        }
 
         $user = User::create([
             'first_name' => $data['first'],
             'last_name' => $data['last'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'company_id' => $company_id
         ]);
-
-        $company->users()->save($user);
         return $user;
     }
 }
