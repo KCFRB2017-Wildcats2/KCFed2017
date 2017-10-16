@@ -24,6 +24,7 @@ class CreateEventsTable extends Migration
             $table->foreign('created_by')->references('id')->on('users');
             $table->unsignedInteger('company_id');
             $table->foreign('company_id')->references('id')->on('companies');
+            $table->string('image');
             $table->timestamps();
         });
     }

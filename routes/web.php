@@ -23,8 +23,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/company/{id}', 'CompanyController@UpdateCompany');
 
     Route::get('/events', 'EventController@Events');
-    Route::get('/event/create', 'EventController@ShowCreate');
-    Route::post('/event/create', 'EventController@CreateEvent');
+    Route::get('/events/create', 'EventController@ShowCreate');
+    Route::post('/events/create', 'EventController@CreateEvent');
 
     Route::get('company/{id}', 'CompanyController@Company');
 });

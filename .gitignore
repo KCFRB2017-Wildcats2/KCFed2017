@@ -14,4 +14,3 @@ composer
 composer.phar
 composer-setup.php
 *.DS_Store
-public/images/profile/*
