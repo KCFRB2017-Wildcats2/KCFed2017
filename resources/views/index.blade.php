@@ -49,9 +49,7 @@
             <h4 class="card-header">Find out What Events your Company Offers</h4>
             <div class="card-body">
               <p class="welcome-text card-text">
-                Events are scheduled onto cards for easy viewing, with information and links provided to look further.
-                Companies can create profiles to provide you with easy information and links to information that you may need
-                Many Companies can own a single Event, allowing the same card to go out to multiple companies if need be
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
               </p>
             </div>
           </div>

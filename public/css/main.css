@@ -31,9 +31,13 @@ input[type=file] {
 }
 
 .hr-panel {
-  border-color: rgb(48, 45, 45);
+  border-color: rgb(129, 129, 129);
 }
 
 .welcome-text {
   text-align: justify;
+}
+
+.create-event {
+  text-align: right;
 }

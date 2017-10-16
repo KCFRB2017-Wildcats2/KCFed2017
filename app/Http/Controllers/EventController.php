@@ -10,17 +10,17 @@ class EventController extends Controller
 {
     public function Events() {
         $events = Event::get();
-        return view('events', compact('events'));
+        return view('events.events', compact('events'));
     }
 
     public function Event($id) {
         $event = Event::where('id', $id)->first();
-        return view ('event', compact('event'));
+        return view ('events.event', compact('event'));
     }
 
     public function ShowCreate() {
         //need auth
-        return view ('create.event');
+        return view ('events.create');
     }
 
     public function CreateEvent(Request $request) {
