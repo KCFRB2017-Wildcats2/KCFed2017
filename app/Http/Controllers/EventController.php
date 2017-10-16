@@ -9,8 +9,9 @@ use Illuminate\Http\Request;
 class EventController extends Controller
 {
     public function Events() {
-        $events = Event::get();
-        return view('events.events', compact('events'));
+        $results = Event::paginate(8);
+
+        return view('events.events', compact('results'));
     }
 
     public function Event($id) {

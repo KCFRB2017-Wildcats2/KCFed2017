@@ -17,7 +17,7 @@
     <hr class="hr-panel">
 
     <div class="row">
-        @foreach($events as $event)
+        @foreach($results as $event)
         <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
             <div class="panel panel-info">
                 <div class="panel-heading">
@@ -34,28 +34,42 @@
 
     <!-- Pagination -->
     <ul class="pagination justify-content-center">
-        <li class="page-item">
-            <a class="page-link" href="#" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-                <span class="sr-only">Previous</span>
+        <li class="page-item @if ( $results->currentPage() == 1) disabled @endif">
+        
+            @if( $results->currentPage() == 1)
+            <span class="page-link">&laquo;</span>
+            @else
+            <a class="page-link" href="{{ $results->previousPageUrl() }}">&laquo;</a>
+            @endif
             </a>
         </li>
+
+        @if ( $results->currentPage() > 1 )
         <li class="page-item">
-            <a class="page-link" href="#">1</a>
+            <a class="page-link" href="{{ $results->previousPageUrl() }} ">{{$results->currentPage() -1}}</a>
         </li>
+        @endif
+
+        <li class="page-item disabled active">
+            <span class="page-link">{{$results->currentPage()}}</span>
+        </li>
+        @if ( $results->hasMorePages() )
         <li class="page-item">
-            <a class="page-link" href="#">2</a>
+            <a class="page-link" href="{{$results->nextPageUrl()}}">{{$results->currentPage() +1}}</a>
         </li>
+        @endif
+        @if( $results->nextPageUrl())
         <li class="page-item">
-            <a class="page-link" href="#">3</a>
+            <a class="page-link" href="{{$results->nextPageUrl()}}">&raquo;</a>
         </li>
-        <li class="page-item">
-            <a class="page-link" href="#" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-                <span class="sr-only">Next</span>
-            </a>
+        @else
+        <li class="page-item @if (!$results->nextPageUrl()) disabled @endif">
+            <span class="page-link">&raquo;</span>
         </li>
+        @endif
     </ul>
+
+
 
 
 </div>
