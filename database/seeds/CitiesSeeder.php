@@ -19,7 +19,7 @@ class CitiesSeeder extends Seeder
         ]);
 
         City::create([
-            'name' => 'San Fransisco',
+            'name' => 'San Francisco',
             'state' => 'California',
         ]);
 
